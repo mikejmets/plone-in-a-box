@@ -65,7 +65,8 @@ server {
 #      proxy_redirect http:// https://;
       proxy_pass http://frontend;
   }
-}EOT
+}
+EOT
 
 service nginx reload
 

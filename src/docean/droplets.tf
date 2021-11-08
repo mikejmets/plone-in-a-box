@@ -18,7 +18,7 @@ resource "digitalocean_droplet" "web" {
 	"sudo apt install -y git",
 	"cd /root; git clone -b docean https://github.com/mikejmets/plone-in-a-box.git",
 	"chmod +x /root/plone-in-a-box/src/StackScript",
-	"sudo /root/plone-in-a-box/src/StackScript"
+	"sudo bash /root/plone-in-a-box/src/StackScript"
     ]
 
     connection {
