@@ -13,7 +13,7 @@ resource "digitalocean_droplet" "web" {
     inline = [
 	"sudo apt update",
 	"sudo apt install -y git",
-	"cd /root; git clone -b kim-ploneconf2021-sprint https://github.com/collective/plone-in-a-box.git",
+	"cd /root; git clone -b docean https://github.com/mikejmets/plone-in-a-box.git",
 	"chmod +x /root/plone-in-a-box/src/StackScript",
 	"sudo /root/plone-in-a-box/src/StackScript"
     ]
