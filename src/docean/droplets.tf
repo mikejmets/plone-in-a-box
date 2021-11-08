@@ -1,7 +1,10 @@
+resource "random_id" "id" {
+  byte_length = 8
+}
+
 resource "digitalocean_droplet" "web" {
-  count = 1
   image  = "ubuntu-20-04-x64"
-  name   = "piab-${count.index}"
+  name   = "piab-${random_id.id.hex}"
   region = "fra1"
   size   = "s-1vcpu-1gb"
 
@@ -27,9 +30,6 @@ resource "digitalocean_droplet" "web" {
   }
 }
 
-output "droplet_ip_addresses" {
-  value = {
-    for droplet in digitalocean_droplet.web:
-    droplet.name => droplet.ipv4_address
-  }
+output "droplet_ip_address" {
+  value = digitalocean_droplet.web.ipv4_address
 }
